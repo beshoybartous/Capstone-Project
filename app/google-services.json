@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "99370466221",
+    "firebase_url": "https://android-internship-task-7efd1.firebaseio.com",
+    "project_id": "android-internship-task-7efd1",
+    "storage_bucket": "android-internship-task-7efd1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99370466221:android:6366fb67c0bf3dcbe7bf24",
+        "android_client_info": {
+          "package_name": "com.example.myhealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99370466221-fokmlosdi9sn4tqmhubj0j0n2o5l63gi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myhealth",
+            "certificate_hash": "7b898da2d59c2cd5ee25681aee363bc987932278"
+          }
+        },
+        {
+          "client_id": "99370466221-mblrmbao4qqlomrfsn7h4nqrtcgdqmil.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM-BwSRGwOnn0JCNPP00qG17e0TjJfrEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99370466221-mblrmbao4qqlomrfsn7h4nqrtcgdqmil.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

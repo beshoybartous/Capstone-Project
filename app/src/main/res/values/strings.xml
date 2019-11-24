@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Gym Coach</string>
+    <string name="title_home">Home</string>
+    <string name="title_gym_near_by">Near by Gym</string>
+    <string name="title_workout">Workout</string>
+    <string-array name="category_name">
+        <item>Triceps</item>
+        <item>Chest</item>
+        <item>Shoulders</item>
+        <item>Biceps</item>
+        <item>Core</item>
+        <item>Back</item>
+        <item>Forearms</item>
+        <item>Legs</item>
+        <item>Claves</item>
+        <item>All</item>
+    </string-array>
+    <string name="note">Swipe any item right or left to delete it.</string>
+    <integer-array name="category_image">
+        <item>@drawable/ic_triceps</item>
+        <item>@drawable/ic_chest</item>
+        <item>@drawable/ic_shoulder</item>
+        <item>@drawable/ic_biceps</item>
+        <item>@drawable/ic_abs</item>
+        <item>@drawable/ic_back</item>
+        <item>@drawable/ic_forearm</item>
+        <item>@drawable/ic_legs</item>
+        <item>@drawable/ic_claves</item>
+        <item>@drawable/ic_all</item>
+    </integer-array>
+    <string name="title_activity_maps">Map</string>
+    <string name="steps">Steps</string>
+    <string name="comment">Comments</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
