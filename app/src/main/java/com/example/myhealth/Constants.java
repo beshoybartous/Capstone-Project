@@ -14,7 +14,7 @@ public class Constants {
     public static final String WORKOUT_PLAN_NAME="plan_name";
 
     public static final String GOOGLE_API_URL="https://maps.googleapis.com/";
-    public static final String GOOGLE_API_KEY="AIzaSyDoxYQ6quagNTJBXDGQzerl_evT0ZKQVvM";
+    public static final String GOOGLE_API_KEY="put ur api key";
     public static final String ACTION_TOAST="actiontoast";
     public static final String EXTRA_ITEM_POSITION="extraItemPosition";
 
