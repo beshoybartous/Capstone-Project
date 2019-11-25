@@ -47,7 +47,6 @@ public class WorkOutPlanRepository {
     private void loadPlans() {
         DatabaseReference  mRefrenceWorkout=FirebaseDatabase.getInstance().getReference();
         String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        Query query= mRefrenceWorkout.child(currentuser);
         Query query= mRefrenceWorkout.child("workout");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

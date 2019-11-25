@@ -48,11 +48,22 @@ public class ExerciseDetailActivity extends AppCompatActivity implements DataLoa
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         viewmodel= ViewModelProviders.of(ExerciseDetailActivity.this).get(WorkOutPlanViewModel.class);
-        listItems=viewmodel.getWorkOutPlans(this).getValue();
-        itemBinding.addExercise.hide();
-         exercise=getIntent().getExtras().getParcelable(Constants.SEND_EXERCISE);
-         fromWorkout=getIntent().getBooleanExtra(Constants.OPEN_FROM_WORKOUT,false);
-         fromWidget=getIntent().getBooleanExtra(Constants.OPEN_FROM_WDIGET,false);
+        if(savedInstanceState==null) {
+            listItems = viewmodel.getWorkOutPlans(this).getValue();
+            itemBinding.addExercise.hide();
+            exercise = getIntent().getExtras().getParcelable(Constants.SEND_EXERCISE);
+            fromWorkout = getIntent().getBooleanExtra(Constants.OPEN_FROM_WORKOUT, false);
+            fromWidget = getIntent().getBooleanExtra(Constants.OPEN_FROM_WDIGET, false);
+        }
+        else{
+            listItems =savedInstanceState.getStringArrayList(Constants.WORKOUT_PLAN_NAME);
+            exercise = savedInstanceState.getParcelable(Constants.SEND_EXERCISE);
+            fromWorkout = savedInstanceState.getBoolean(Constants.OPEN_FROM_WORKOUT, false);
+            fromWidget = savedInstanceState.getBoolean(Constants.OPEN_FROM_WDIGET, false);
+            if(fromWorkout){
+                itemBinding.addExercise.hide();
+            }
+        }
          if(exercise!=null) {
              Glide.with(this).asGif().load(Uri.parse(exercise.getGifUrl())).
                      fitCenter().into(itemBinding.imageView);
@@ -125,5 +136,14 @@ public class ExerciseDetailActivity extends AppCompatActivity implements DataLoa
     @Override
     public void onExerciseLoad() {
 
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        ArrayList<String>arrayList= (ArrayList<String>) listItems;
+        outState.putStringArrayList(Constants.WORKOUT_PLAN_NAME,arrayList);
+        outState.putParcelable(Constants.SEND_EXERCISE,exercise);
+        outState.putBoolean(Constants.OPEN_FROM_WORKOUT,fromWorkout);
+        outState.putBoolean(Constants.OPEN_FROM_WDIGET,fromWidget);
+        super.onSaveInstanceState( outState );
     }
 }

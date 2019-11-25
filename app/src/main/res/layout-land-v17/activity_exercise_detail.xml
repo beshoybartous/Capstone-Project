@@ -56,7 +56,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:elevation="12dp"
                     android:thicknessRatio="1.9"
@@ -75,10 +74,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:layout_marginLeft="8dp"
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="8dp"
-                            android:layout_marginRight="8dp"
                             android:textColor="@color/colorPrimaryLight"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -97,8 +94,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_centerVertical="true"
-                                android:layout_marginRight="2dp"
-                                android:layout_toLeftOf="@id/reviews_label"
+                                android:layout_marginEnd="2dp"
+                                android:layout_toStartOf="@id/reviews_label"
                                 android:background="@android:color/black" />
 
                             <TextView
@@ -114,8 +111,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_centerVertical="true"
-                                android:layout_marginLeft="2dp"
-                                android:layout_toRightOf="@id/reviews_label"
+                                android:layout_marginStart="2dp"
+                                android:layout_toEndOf="@id/reviews_label"
                                 android:background="@android:color/black" />
                         </RelativeLayout>
 
@@ -125,10 +122,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:layout_marginLeft="8dp"
                             android:layout_marginTop="20dp"
                             android:layout_marginEnd="8dp"
-                            android:layout_marginRight="8dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/relative_layout_steps" />
@@ -146,8 +141,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_centerVertical="true"
-                                android:layout_marginRight="2dp"
-                                android:layout_toLeftOf="@id/reviews_label2"
+                                android:layout_marginEnd="2dp"
+                                android:layout_toStartOf="@id/reviews_label2"
                                 android:background="@android:color/black" />
 
                             <TextView
@@ -163,8 +158,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_centerVertical="true"
-                                android:layout_marginLeft="2dp"
-                                android:layout_toRightOf="@id/reviews_label2"
+                                android:layout_marginStart="2dp"
+                                android:layout_toEndOf="@id/reviews_label2"
                                 android:background="@android:color/black" />
                         </RelativeLayout>
 
@@ -174,10 +169,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:layout_marginLeft="8dp"
                             android:layout_marginTop="20dp"
                             android:layout_marginEnd="8dp"
-                            android:layout_marginRight="8dp"
                             android:paddingBottom="100dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -195,7 +188,6 @@
             android:layout_margin="32dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
             android:layout_marginBottom="8dp"
             android:src="@drawable/add"
             app:layout_anchor="@id/scroll_view"
@@ -203,5 +195,4 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </RelativeLayout>
-
 </layout>

@@ -59,7 +59,7 @@ public class ExerciseWidgetService extends RemoteViewsService {
             RemoteViews views=new RemoteViews( context.getPackageName(), R.layout.exercise_widget_items);
             if(exercises!=null) {
                 views.setTextViewText( R.id.tv_exercise_data,
-                        "Target Muscle : "+exercises.getMuscle()+"\n\n"+"Steps : "+exercises.getInstructionExecution()+"\n"+exercises.getInstructionPreparation()
+                        R.string.Target+exercises.getMuscle()+"\n\n"+R.string.Steps+exercises.getInstructionExecution()+"\n"+exercises.getInstructionPreparation()
                         +"\n\n"+"Notes : "+exercises.getComment()
                                 );
                 Glide.with(getApplicationContext()).asBitmap().load(Uri.parse(exercises.getGifUrl())).apply(RequestOptions.circleCropTransform())

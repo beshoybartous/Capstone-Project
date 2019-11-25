@@ -15,7 +15,14 @@
         <item>Claves</item>
         <item>All</item>
     </string-array>
+    <string name="Target">Target Muscle : </string>
+    <string name="Steps">Steps : </string>
     <string name="note">Swipe any item right or left to delete it.</string>
+    <string name="dialog_title">Add New Workout Plan</string>
+    <string name="dialog_message">You must add exercise after creating your workout to be able to open it</string>
+    <string name="dialog_button1">Add</string>
+    <string name="dialog_button2">Cancel</string>
+
     <integer-array name="category_image">
         <item>@drawable/ic_triceps</item>
         <item>@drawable/ic_chest</item>

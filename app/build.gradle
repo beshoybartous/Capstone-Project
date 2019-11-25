@@ -2,6 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
+    signingConfigs {
+        config {
+            storeFile file('../keystore.jks')
+            storePassword 'password'
+            keyAlias = 'GymCoach'
+            keyPassword 'password'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -12,6 +20,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        signingConfig signingConfigs.config
 
     }
     compileOptions {
@@ -22,6 +31,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+
         }
     }
     dataBinding.enabled = true;
@@ -35,7 +46,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
-
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
@@ -47,26 +57,19 @@ dependencies {
 // Retrofit Parsing
     implementation 'com.google.code.gson:gson:2.6.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation("com.squareup.okhttp3:okhttp:4.2.2")
 
     //firebase
     implementation 'com.google.firebase:firebase-auth:19.1.0'
-    implementation 'com.facebook.android:facebook-login:[5,6)'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
     implementation 'com.firebaseui:firebase-ui-auth:6.0.2'
     implementation 'com.google.firebase:firebase-database:19.1.0'
     implementation 'com.firebase:firebase-client-android:2.5.2'
-    implementation 'com.google.firebase:firebase-core:17.2.1'
 
     //room
     implementation 'androidx.room:room-runtime:2.1.0'
     annotationProcessor 'androidx.room:room-compiler:2.1.0'
 
-
     //glide
     implementation 'com.github.bumptech.glide:glide:4.10.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-
 }

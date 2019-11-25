@@ -48,8 +48,6 @@ public class WorkoutPlanAdapter extends RecyclerView.Adapter<WorkoutPlanAdapter.
     @Override
     public void onBindViewHolder(@NonNull WorkoutPlanViewHolder holder, int position) {
         holder.itemBinding.textView.setText(workoutPlans.get(position));
-        if(workoutPlans.size()-1!=position)
-        holder.itemBinding.note.setVisibility(View.GONE);
     }
 
     @Override

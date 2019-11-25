@@ -17,6 +17,8 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+
 import com.example.myhealth.Constants;
 import com.example.myhealth.R;
 import com.example.myhealth.adapter.ExerciseListAdapter;
@@ -57,6 +59,7 @@ public class ExerciseActivity extends AppCompatActivity implements ExerciseListA
 
         fromWorkout=getIntent().getBooleanExtra(Constants.OPEN_FROM_WORKOUT,false);
         if(fromWorkout){
+            activityExerciseBinding.note.setVisibility(View.VISIBLE);
             String planName=getIntent().getStringExtra(Constants.WORKOUT_PLAN_NAME);
             getSupportActionBar().setTitle(planName);
             List<ExerciseDB> exerciseDBS=getIntent().getParcelableArrayListExtra(Constants.SEND_EXERCISE_LIST);

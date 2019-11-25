@@ -41,14 +41,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
-        <TextView
-            android:layout_gravity="center"
-            android:id="@+id/note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="100dp"
-            style="@style/textShaodw"
-            android:text="@string/note"/>
+
     </LinearLayout>
 
 </layout>

@@ -2,6 +2,7 @@ package com.example.myhealth.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -25,7 +26,10 @@ public class WorkOutPlanViewModel extends ViewModel {
 
 
     public LiveData<List<String>> getWorkOutPlans(DataLoadListener context){
-        plans= WorkOutPlanRepository.getInstance(context).loadWorkoutPlans();
+        Log.i("washere", "getWorkOutPlans: ");
+            Log.i("washere", "getWorkOutPlans: 2");
+            plans = WorkOutPlanRepository.getInstance(context).loadWorkoutPlans();
+
         return plans;
     }
     public LiveData<List<ExerciseDB>> getExercises(DataLoadListener context,String workoutName){
@@ -40,6 +44,7 @@ public class WorkOutPlanViewModel extends ViewModel {
     }
     public void addWorkOutPlan(String workoutPlanName,DataLoadListener context){
         WorkOutPlanRepository.getInstance(context).addWorkOutPlan(workoutPlanName);
+        plans = WorkOutPlanRepository.getInstance(context).loadWorkoutPlans();
     }
     public void deleteWorkoutPlan(String workoutPlanName,DataLoadListener context){
         WorkOutPlanRepository.getInstance(context).deleteWorkoutPlan(workoutPlanName);

@@ -61,6 +61,8 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
         Glide.with(mContext).asGif().load(Uri.parse(exercises.get(position).getGifUrl()) ).
         apply(RequestOptions.circleCropTransform())
                 .override(300, 300).fitCenter().circleCrop().into(holder.exerciseListItemBinding.imageView2);
+        holder.exerciseListItemBinding.imageView2.setContentDescription(exercises.get(position).getName());
+
     }
 
     @Override

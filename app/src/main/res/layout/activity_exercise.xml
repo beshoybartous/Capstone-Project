@@ -5,16 +5,38 @@
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar"
             />
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/toolbar"
-        android:background="@color/colorPrimaryDark"
-        android:id="@+id/rv_exercise"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <ScrollView
+            android:layout_below="@id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_exercise"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+            <TextView
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:id="@+id/note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                style="@style/textShaodw"
+                android:text="@string/note"/>
+        </LinearLayout>
+</ScrollView>
     </RelativeLayout>
 </layout>
