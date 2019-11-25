@@ -26,8 +26,6 @@ public class WorkOutPlanViewModel extends ViewModel {
 
 
     public LiveData<List<String>> getWorkOutPlans(DataLoadListener context){
-        Log.i("washere", "getWorkOutPlans: ");
-            Log.i("washere", "getWorkOutPlans: 2");
             plans = WorkOutPlanRepository.getInstance(context).loadWorkoutPlans();
 
         return plans;

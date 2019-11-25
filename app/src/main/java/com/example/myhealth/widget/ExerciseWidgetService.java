@@ -34,7 +34,7 @@ public class ExerciseWidgetService extends RemoteViewsService {
             this.context=context;
             this.intent=intent;
             AppWidgetId  = Integer.valueOf(intent.getData().getSchemeSpecificPart());
-            Bundle b=intent.getBundleExtra( "Bundle1" );
+            Bundle b=intent.getBundleExtra( Constants.WIDGET_BUNDLE );
             this.exercises=b.getParcelable(Constants.SEND_EXERCISE);
         }
         @Override
@@ -59,8 +59,8 @@ public class ExerciseWidgetService extends RemoteViewsService {
             RemoteViews views=new RemoteViews( context.getPackageName(), R.layout.exercise_widget_items);
             if(exercises!=null) {
                 views.setTextViewText( R.id.tv_exercise_data,
-                        R.string.Target+exercises.getMuscle()+"\n\n"+R.string.Steps+exercises.getInstructionExecution()+"\n"+exercises.getInstructionPreparation()
-                        +"\n\n"+"Notes : "+exercises.getComment()
+                        getString(R.string.Target)+exercises.getMuscle()+"\n\n"+getString(R.string.Steps)+exercises.getInstructionExecution()
+                                +"\n"+exercises.getInstructionPreparation() +"\n\n"+getString(R.string.Notes)+exercises.getComment()
                                 );
                 Glide.with(getApplicationContext()).asBitmap().load(Uri.parse(exercises.getGifUrl())).apply(RequestOptions.circleCropTransform())
                         .override(300, 300).fitCenter().into(new CustomTarget<Bitmap>() {

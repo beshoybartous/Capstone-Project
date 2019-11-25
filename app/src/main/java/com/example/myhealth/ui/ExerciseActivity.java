@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.myhealth.Constants;
 import com.example.myhealth.R;
@@ -41,9 +42,11 @@ public class ExerciseActivity extends AppCompatActivity implements ExerciseListA
         super.onCreate(savedInstanceState);
         activityExerciseBinding= DataBindingUtil.setContentView(this,R.layout.activity_exercise);
         Toolbar toolbar = (Toolbar) activityExerciseBinding.toolbar;
+        TextView  toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle(null);
         exerciseViewModel= ViewModelProviders.of( ExerciseActivity.this ).get( ExerciseViewModel.class );
         category=getIntent().getStringExtra(Constants.MUSCLE_NAME);
         exerciseListAdapter=new ExerciseListAdapter(this,ExerciseActivity.this);
@@ -61,7 +64,7 @@ public class ExerciseActivity extends AppCompatActivity implements ExerciseListA
         if(fromWorkout){
             activityExerciseBinding.note.setVisibility(View.VISIBLE);
             String planName=getIntent().getStringExtra(Constants.WORKOUT_PLAN_NAME);
-            getSupportActionBar().setTitle(planName);
+            toolbarTitle.setText(planName);
             List<ExerciseDB> exerciseDBS=getIntent().getParcelableArrayListExtra(Constants.SEND_EXERCISE_LIST);
             exerciseListAdapter.setExercises(exerciseDBS);
             exerciseListAdapter.setWorkout(true);
@@ -106,7 +109,7 @@ public class ExerciseActivity extends AppCompatActivity implements ExerciseListA
                     }
 
                 });
-                getSupportActionBar().setTitle(category);
+                toolbarTitle.setText(category);
 
             }
         }

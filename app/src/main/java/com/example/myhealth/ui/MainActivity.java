@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) mainBinding.toolbar;
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);//Set the default to null
         mainBinding.navView.setOnNavigationItemSelectedListener(navListener);
         if(savedInstanceState==null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 // user is now signed out
                                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                                Toast.makeText(MainActivity.this, "You're now signed out. Good Bye.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, getString(R.string.Signout), Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         });

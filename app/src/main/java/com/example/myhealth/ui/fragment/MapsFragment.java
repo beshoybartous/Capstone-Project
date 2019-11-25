@@ -94,7 +94,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Google
             public void onChanged(List<GymPlacesModel.ResultsBean> resultsBeans) {
                 if(resultsBeans!=null&&resultsBeans.size()>0) {
                     gymPlacesModelResults.setResults(resultsBeans);
-                    Log.i("welcomehereinadapter", "onChanged: ");
                     gymAdapter.setPlaces(resultsBeans);
                     gymAdapter.notifyDataSetChanged();
                     mapsBinding.rvMaps.setAdapter(gymAdapter);
@@ -131,7 +130,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Google
         googlePlaceUrl.append("&type=gym");
         googlePlaceUrl.append("&sensor=true");
         googlePlaceUrl.append("&key=" + Constants.GOOGLE_API_KEY);
-        Log.i("weburl", googlePlaceUrl.toString());
         return googlePlaceUrl.toString();
     }
 

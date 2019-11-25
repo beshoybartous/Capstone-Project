@@ -8,6 +8,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.myhealth.Constants;
 import com.example.myhealth.model.ExerciseDB;
 import com.example.myhealth.model.ExerciseModel;
 import com.google.gson.Gson;
@@ -26,7 +27,7 @@ public abstract class ExerciseDataBase extends RoomDatabase {
     public static synchronized ExerciseDataBase getInstance(Context context){
         if(moviesDataBaseInstance==null){
             moviesDataBaseInstance= Room.databaseBuilder(context.getApplicationContext(),ExerciseDataBase.class
-                    ,"exersice_table").addCallback(new Callback() {
+                    , Constants.DB_TABLE).addCallback(new Callback() {
                 @Override
                 public void onCreate(@NonNull SupportSQLiteDatabase db) {
                     super.onCreate(db);
@@ -56,8 +57,7 @@ public abstract class ExerciseDataBase extends RoomDatabase {
     public static String loadJSONFromAsset(Context context) {
         String json = null;
         try {
-
-            InputStream is = context.getAssets().open("exercise.json");
+            InputStream is = context.getAssets().open(Constants.DB_FILE);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

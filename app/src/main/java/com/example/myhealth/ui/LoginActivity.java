@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    Toast.makeText(LoginActivity.this, "You're now signed in. Welcome to Gym Coach.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, getString(R.string.Signin), Toast.LENGTH_SHORT).show();
                     Intent homeIntent=new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(homeIntent);
                     finish();
@@ -71,11 +71,10 @@ public class LoginActivity extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             if (resultCode == RESULT_OK) {
                 // Sign-in succeeded, set up the UI
-                Toast.makeText(this, "Signed in!", Toast.LENGTH_SHORT).show();
 
             } else if (resultCode == RESULT_CANCELED) {
                 // Sign in was canceled by the user, finish the activity
-                Toast.makeText(this, "Sign in canceled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.Signin_canceled), Toast.LENGTH_SHORT).show();
                 finish();
             }
         }

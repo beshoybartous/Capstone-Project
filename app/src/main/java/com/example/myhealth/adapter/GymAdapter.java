@@ -45,22 +45,22 @@ public class GymAdapter  extends RecyclerView.Adapter<GymAdapter.GymViewHolder>{
         if (places.size() > 0) {
 
 
-            holder.placeBinding.gymName.setText("Gym Name : " + places.get(position).getName());
-            holder.placeBinding.gymAddress.setText("Address : " + places.get(position).getVicinity());
+            holder.placeBinding.gymName.setText(mContext.getResources().getString( R.string.Gymname) + places.get(position).getName());
+            holder.placeBinding.gymAddress.setText(mContext.getResources().getString(R.string.GymAddres) + places.get(position).getVicinity());
 
             if (places.get(position).getOpening_hours()!=null) {
                 if(places.get(position).getOpening_hours().isOpen_now())
-                holder.placeBinding.openhour.setText("Open Now");
+                holder.placeBinding.openhour.setText(mContext.getResources().getString(R.string.open));
                 else {
-                    holder.placeBinding.openhour.setText("Closed");
+                    holder.placeBinding.openhour.setText(mContext.getResources().getString(R.string.close));
                 }
             } else {
-                holder.placeBinding.openhour.setText("Closed");
+                holder.placeBinding.openhour.setText(mContext.getResources().getString(R.string.close));
             }
             if (places.get(position).getRating() != null) {
-                holder.placeBinding.rate.setText(String.valueOf(places.get(position).getRating()) + "/5");
+                holder.placeBinding.rate.setText(String.valueOf(places.get(position).getRating()) + mContext.getResources().getString(R.string.rating));
             } else {
-                holder.placeBinding.rate.setText("~/5");
+                holder.placeBinding.rate.setText(mContext.getResources().getString(R.string.norating));
             }
         }
     }

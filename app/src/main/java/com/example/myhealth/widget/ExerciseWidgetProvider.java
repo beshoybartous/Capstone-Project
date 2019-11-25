@@ -38,8 +38,8 @@ public class ExerciseWidgetProvider extends AppWidgetProvider {
 
         if(exercises!=null) {
             data.putParcelable( Constants.SEND_EXERCISE, exercises  );
-            serviceIntent.setData(Uri.fromParts("content", String.valueOf(appWidgetId+randomNumber), null));
-            serviceIntent.putExtra("Bundle1",data);
+            serviceIntent.setData(Uri.fromParts(Constants.WIDGET_CONTENT, String.valueOf(appWidgetId+randomNumber), null));
+            serviceIntent.putExtra(Constants.WIDGET_BUNDLE,data);
             serviceIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
             context.sendBroadcast(serviceIntent);
             views.setRemoteAdapter( R.id.ingredient_widget_list, serviceIntent );

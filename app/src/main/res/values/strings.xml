@@ -15,6 +15,12 @@
         <item>Claves</item>
         <item>All</item>
     </string-array>
+    <string name="Added">Added successfully to  </string>
+    <string name="Notes">Notes : </string>
+    <string name="Signin">You\'re now signed in. Welcome to Gym Coach.</string>
+    <string name="Signin_canceled">Sign in canceled</string>
+    <string name="Signout">You\'re now signed out. Good Bye.</string>
+    <string name="dialog_title2">Add Exercise To Workout</string>
     <string name="Target">Target Muscle : </string>
     <string name="Steps">Steps : </string>
     <string name="note">Swipe any item right or left to delete it.</string>
@@ -22,7 +28,12 @@
     <string name="dialog_message">You must add exercise after creating your workout to be able to open it</string>
     <string name="dialog_button1">Add</string>
     <string name="dialog_button2">Cancel</string>
-
+    <string name="Gymname">Gym Name : </string>
+    <string name="GymAddres">Address : </string>
+    <string name="open">Open Now</string>
+    <string name="close">Closed</string>
+    <string name="rating">/5</string>
+    <string name="norating">~/5</string>
     <integer-array name="category_image">
         <item>@drawable/ic_triceps</item>
         <item>@drawable/ic_chest</item>

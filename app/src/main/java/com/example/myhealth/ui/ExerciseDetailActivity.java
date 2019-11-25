@@ -17,6 +17,7 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -44,6 +45,7 @@ public class ExerciseDetailActivity extends AppCompatActivity implements DataLoa
         super.onCreate(savedInstanceState);
         itemBinding= DataBindingUtil.setContentView(this,R.layout.activity_exercise_detail);
         Toolbar toolbar = (Toolbar) itemBinding.toolbar;
+        TextView toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -68,11 +70,12 @@ public class ExerciseDetailActivity extends AppCompatActivity implements DataLoa
              Glide.with(this).asGif().load(Uri.parse(exercise.getGifUrl())).
                      fitCenter().into(itemBinding.imageView);
              itemBinding.textView.setText(exercise.getName());
-             itemBinding.textView2.setText("1) " + exercise.getInstructionPreparation() + "\n" +
-                     "2) " + exercise.getInstructionExecution());
+             itemBinding.textView2.setText("-" + exercise.getInstructionPreparation() + "\n" +
+                     "-" + exercise.getInstructionExecution());
              itemBinding.textView3.setText(exercise.getComment());
          }
-         getSupportActionBar().setTitle(exercise.getName());
+         getSupportActionBar().setTitle(null);
+        toolbarTitle.setText(exercise.getName());
          Intent widgetIntent = new Intent(this,
                 ExerciseWidgetProvider.class);
         widgetIntent.setAction( AppWidgetManager.ACTION_APPWIDGET_UPDATE);
@@ -103,10 +106,10 @@ public class ExerciseDetailActivity extends AppCompatActivity implements DataLoa
         AlertDialog.Builder alertDialog=new AlertDialog.Builder(this);
 
         final CharSequence[] charSequenceItems = items.toArray(new CharSequence[items.size()]);
-        alertDialog.setTitle("Add Exercise To Workout").setItems(charSequenceItems, new DialogInterface.OnClickListener() {
+        alertDialog.setTitle(getString(R.string.dialog_title2)).setItems(charSequenceItems, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(ExerciseDetailActivity.this,charSequenceItems[which].toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(ExerciseDetailActivity.this,getString(R.string.Added)+" "+ charSequenceItems[which].toString()+".",Toast.LENGTH_SHORT).show();
                 viewmodel.addExercise(charSequenceItems[which].toString(),exercise,ExerciseDetailActivity.this);
             }
         });

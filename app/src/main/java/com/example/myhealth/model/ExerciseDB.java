@@ -7,7 +7,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "exersice_table")
+import com.example.myhealth.Constants;
+
+@Entity(tableName = Constants.DB_TABLE)
 
 public class ExerciseDB implements Parcelable {
     @PrimaryKey(autoGenerate = true)

@@ -4,6 +4,8 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.myhealth.Constants;
 import com.example.myhealth.model.ExerciseDB;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,12 +20,10 @@ import java.util.List;
 
 public class WorkOutPlanRepository {
 
-    private DatabaseReference mRefrenceExercise;
     private List<String> workoutPlan=new ArrayList<>();
     private List<ExerciseDB> exercises=new ArrayList<>();
 
     static WorkOutPlanRepository instance;
-    static Context mContext;
     static DataLoadListener dataLoadListener;
     public static WorkOutPlanRepository getInstance(DataLoadListener context){
         if(instance==null){
@@ -47,7 +47,7 @@ public class WorkOutPlanRepository {
     private void loadPlans() {
         DatabaseReference  mRefrenceWorkout=FirebaseDatabase.getInstance().getReference();
         String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Query query= mRefrenceWorkout.child("workout");
+        Query query= mRefrenceWorkout.child(Constants.FB_child);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -119,7 +119,7 @@ public class WorkOutPlanRepository {
     public void addWorkOutPlan(String workoutPlanName){
         DatabaseReference  mRefrenceWorkout=FirebaseDatabase.getInstance().getReference();
         String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Query query= mRefrenceWorkout.child("workout").child(workoutPlanName);
+        Query query= mRefrenceWorkout.child(Constants.FB_child).child(workoutPlanName);
         String key=currentuser;
         ((DatabaseReference) query).child(key).setValue(currentuser).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -130,7 +130,7 @@ public class WorkOutPlanRepository {
     public void deleteWorkoutPlan(String workoutPlanName ){
         DatabaseReference  mRefrenceWorkout=FirebaseDatabase.getInstance().getReference();
         String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Query query= mRefrenceWorkout.child("workout").child(workoutPlanName).child(currentuser);
+        Query query= mRefrenceWorkout.child(Constants.FB_child).child(workoutPlanName).child(currentuser);
         ((DatabaseReference) query).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

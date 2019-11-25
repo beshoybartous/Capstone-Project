@@ -63,10 +63,10 @@ public class WorkoutFragment extends Fragment implements WorkoutPlanAdapter.List
             public void onClick(View v) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
                 final EditText edittext = new EditText(getContext());
-                alert.setTitle(R.string.dialog_title);
-                alert.setMessage(R.string.dialog_message);
+                alert.setTitle(getString(R.string.dialog_title));
+                alert.setMessage(getString(R.string.dialog_message));
                 alert.setView(edittext);
-                alert.setNegativeButton(R.string.dialog_button1, new DialogInterface.OnClickListener() {
+                alert.setNegativeButton(getString(R.string.dialog_button1), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String YouEditTextValue = edittext.getText().toString();
                         onNameLoaded();
@@ -74,7 +74,7 @@ public class WorkoutFragment extends Fragment implements WorkoutPlanAdapter.List
                         viewmodel.addWorkOutPlan(YouEditTextValue,WorkoutFragment.this);
                     }
                 });
-                alert.setPositiveButton(R.string.dialog_button2, new DialogInterface.OnClickListener() {
+                alert.setPositiveButton(getString(R.string.dialog_button2), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                     }
                 });

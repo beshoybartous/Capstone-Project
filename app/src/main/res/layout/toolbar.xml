@@ -6,5 +6,11 @@
     android:elevation="4dp"
     android:background="@color/colorPrimary"
     app:subtitleTextAppearance="@style/textShadowblack">
-
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="22sp"
+        style="@style/textShadowblack"/>
 </androidx.appcompat.widget.Toolbar>
